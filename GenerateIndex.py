@@ -11,13 +11,13 @@ class Toolbox(object):
         self.alias = "toolbox"
 
         # List of tool classes associated with this toolbox
-        self.tools = [Tool]
+        self.tools = [CalcIndex]
 
 
-class Tool(object):
+class CalcIndex(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
-        self.label = "Tool"
+        self.label = "CalcIndex"
         self.description = ""
         self.canRunInBackground = False
 
@@ -29,10 +29,10 @@ class Tool(object):
             datatype="GPFeatureLayer",
             parameterType="Required",
             direction="Input")
-        input_fc.filter.list = ["Point"]
+        input_fc.filter.list = ["Point", "Polygon"]
 
         ridership_idx = arcpy.Parameter(
-            displayName="Calculated Ridership Index Field",
+            displayName="New Index Field",
             name="rdi",
             datatype="GPString",
             parameterType="Required",
